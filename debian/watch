@@ -1,0 +1,10 @@
+version=4
+opts=\
+dversionmangle=auto,\
+filenamemangle=s/.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-querystringify-$1/ \
+ https://github.com/unshiftio/querystringify/tags .*/archive/.*/v?([\d\.]+).tar.gz group
+
+# It is not recommended use npmregistry. Please investigate more.
+# Take a look at https://wiki.debian.org/debian/watch/
+opts="searchmode=plain,component=types-querystringify,ctype=nodejs,pgpmode=none,filenamemangle=s/^.*?(\d[\d\.-]*@ARCHIVE_EXT@)/node-types-querystringify-$1/" \
+ https://registry.npmjs.org/@types/querystringify https://registry.npmjs.org/@types/querystringify/-/querystringify-([\d\.]+)@ARCHIVE_EXT@ group

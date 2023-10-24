@@ -1,0 +1,16 @@
+Description: drop __proto__ calls
+Author: Yadd <yadd@debian.org>
+Forwarded: no
+Last-Update: 2022-12-01
+
+--- a/test.js
++++ b/test.js
+@@ -89,7 +89,7 @@
+ 
+       assume(obj).is.a('object');
+       assume(obj.toString).is.a('function');
+-      assume(obj.__proto__).does.not.equals('lol');
++      assume(Object.getPrototypeOf(obj)).does.not.equals('lol');
+     });
+ 
+     it('works with querystring parameters without values', function () {
